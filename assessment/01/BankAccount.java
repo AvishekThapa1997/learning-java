@@ -9,7 +9,7 @@ class BankAccount {
             this.accountNumber = accountNumber;
             this.balance = balance;
         } else {
-            throw new IllegalArgumentException("Deposit amount cannot be less than zero");
+            throw new IllegalArgumentException("Initial balance cannot be negative");
         }
     }
 
