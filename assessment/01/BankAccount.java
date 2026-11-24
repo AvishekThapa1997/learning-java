@@ -52,6 +52,21 @@ class BankAccount {
         return this.balance;
     }
 
+    @Override
+    public String toString() {
+        String bankAccountStrTemplate = "BankAccount(Account Holder = %s, Account Number = %s, Balance = %.2f)";
+        // return String.format(
+        // bankAccountStrTemplate,
+        // this.accountHolder,
+        // this.accountHolder,
+        // this.balance);
+        return bankAccountStrTemplate.formatted(
+                this.accountHolder,
+                this.accountNumber,
+                this.balance);
+
+    }
+
 }
 
 class Main {
