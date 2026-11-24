@@ -4,20 +4,21 @@ class BankAccount {
     private double balance;
 
     public BankAccount(String accountHolder, String accountNumber, double balance) {
-        if (isValidAmount(balance)) {
+        if (balance >= 0) {
             this.accountHolder = accountHolder;
             this.accountNumber = accountNumber;
             this.balance = balance;
+        } else {
+            throw new IllegalArgumentException("Deposit amount cannot be less than zero");
         }
-        throw new IllegalArgumentException("Deposit amount cannot be less than zero");
     }
 
     private static boolean isValidAmount(double amount) {
-        return amount >= 0;
+        return amount > 0;
     }
 
     private boolean isValidWithdrawalAmount(double amount) {
-        return isValidAmount(amount) && this.balance > amount;
+        return this.balance >= amount;
     }
 
     public void deposit(double amount) {
@@ -55,7 +56,7 @@ class BankAccount {
 
 class Main {
     public static void main(String[] args) {
-        BankAccount bankAccount = new BankAccount("Avishek", "12345", -500);
+        BankAccount bankAccount = new BankAccount("Avishek", "12345", 500);
         System.out.println(bankAccount);
     }
 }
