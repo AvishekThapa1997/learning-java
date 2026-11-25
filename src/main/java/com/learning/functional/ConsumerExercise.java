@@ -6,6 +6,8 @@ public class ConsumerExercise {
 
     public static void main(String[] args) {
         Consumer<String> printer = str -> System.out.println(str);
-        printer.accept("Hello java");
+        Consumer<String> upper = str -> System.out.println(str.toUpperCase());
+        Consumer<String> printLength = str -> System.out.println(str.length());
+        printer.andThen(upper).andThen(printLength).accept("java");
     }
 }
