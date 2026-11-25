@@ -1,3 +1,5 @@
+package com.learning.lambda;
+
 // Functional Interface
 @FunctionalInterface
 interface Calculator {
@@ -6,11 +8,6 @@ interface Calculator {
     default void printResult(int result) {
         System.out.println(result);
     }
-}
-
-@FunctionalInterface
-public interface Validator {
-    boolean validate(String str);
 }
 
 public class LambdaAssessment {

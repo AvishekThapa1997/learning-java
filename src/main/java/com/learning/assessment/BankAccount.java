@@ -1,4 +1,6 @@
-class BankAccount {
+package com.learning.assessment;
+
+public class BankAccount {
     private String accountHolder;
     private String accountNumber;
     private double balance;
