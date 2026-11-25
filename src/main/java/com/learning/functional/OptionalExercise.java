@@ -19,9 +19,17 @@ public class OptionalExercise {
         System.out.println(String.format("Result is %s", result));
 
         Optional<String> nullableValue = Optional.ofNullable("avishek");
+        // Optional<String> username = Optional.of("Tom");
         nullableValue.ifPresent(s -> System.out.println(s));
-        nullableValue.ifPresentOrElse((s) -> s.toUpperCase(), () -> {
+        nullableValue.ifPresentOrElse((s) -> System.out.println(s.toUpperCase()), () -> {
             System.out.println("No value");
         });
+
+        Optional<String> filtered = username.filter(_name -> {
+            System.out.println("Executing filter");
+            return _name.length() > 5;
+        });
+
+        System.out.println("Filter completed");
     }
 }
