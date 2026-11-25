@@ -17,5 +17,11 @@ public class OptionalExercise {
         Optional<String> username = name.map((s) -> s.concat(" Thapa"));
         String result = username.get();
         System.out.println(String.format("Result is %s", result));
+
+        Optional<String> nullableValue = Optional.ofNullable("avishek");
+        nullableValue.ifPresent(s -> System.out.println(s));
+        nullableValue.ifPresentOrElse((s) -> s.toUpperCase(), () -> {
+            System.out.println("No value");
+        });
     }
 }
