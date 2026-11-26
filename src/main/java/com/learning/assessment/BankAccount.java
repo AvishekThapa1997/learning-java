@@ -1,5 +1,8 @@
 package com.learning.assessment;
 
+import com.learning.exceptions.InsufficientBalanceException;
+import com.learning.exceptions.InvalidAmountException;
+
 public class BankAccount {
     private String accountHolder;
     private String accountNumber;
@@ -11,7 +14,8 @@ public class BankAccount {
             this.accountNumber = accountNumber;
             this.balance = balance;
         } else {
-            throw new IllegalArgumentException("Initial balance cannot be negative");
+            throw new InvalidAmountException(
+                    "Invalid amount");
         }
     }
 
@@ -27,16 +31,16 @@ public class BankAccount {
         if (isValidAmount(amount)) {
             this.balance += amount;
         } else {
-            throw new IllegalArgumentException("Deposit amount cannot be less than zero");
+            throw new InvalidAmountException("Deposit amount cannot be less than zero");
         }
     }
 
     public double withdraw(double amount) {
         if (!isValidAmount(amount)) {
-            throw new IllegalArgumentException("Deposit amount cannot be less than zero");
+            throw new InvalidAmountException("Deposit amount cannot be less than zero");
         }
         if (!isValidWithdrawalAmount(amount)) {
-            throw new IllegalArgumentException("Insufficient balance");
+            throw new InsufficientBalanceException("Insufficient balance");
         }
         this.balance -= amount;
         return amount;
